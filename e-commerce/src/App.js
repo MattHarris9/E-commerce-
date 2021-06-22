@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 
 
-import { Products, Navbar } from "./components"
-import { useIsFocusVisible } from '@material-ui/core';
+import { Products, Navbar, Cart } from "./components"
 
 
 
@@ -37,8 +36,9 @@ const App = () => {
 
     return (
         <div>
-            <Navbar />
-            <Products products= {products} onAddToCart = {handleAddToCart} />
+            <Navbar totalItems={cart.total_items} />
+            { /* <Products products= {products} onAddToCart = {handleAddToCart} />  */ }
+            <Cart cart={cart} />
         </div>
     )
 }
