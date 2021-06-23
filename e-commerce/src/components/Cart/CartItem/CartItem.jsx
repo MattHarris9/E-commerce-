@@ -3,11 +3,27 @@ import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@
 
 import useStyles from "./styles";
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
+    const classes = useStyles();
+    
+    
     return (
-        <div>
+        <Card>
+            <CardMedia image={item.media.source} alt={item.name} className={classes.media} />
+            <CardContent className={classes.cardContent}>
+                <Typography varient="h4">{item.name}</Typography>
+                <Typography varient="h5">{item.line_total.formatted_with_symbol}</Typography>
+            </CardContent>
+            <CardActions className={classes.cardActions}>
+                <div className={classes.buttons}>
+                    <Button type="button" size="small">-</Button>
+                    <Typography>{item.quanity}</Typography>
+                    <Button type="button" size="small">+</Button>
+                </div>
+                <Button varient="conatained" type="button" color="secondary">Remove</Button>
+            </CardActions>
             
-        </div>
+        </Card>
     )
 }
 
